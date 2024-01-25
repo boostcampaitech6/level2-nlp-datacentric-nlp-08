@@ -23,8 +23,8 @@ torch.cuda.manual_seed_all(SEED)
 
 DEVICE = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
 BASE_DIR = os.getcwd()
-DATA_DIR = os.path.join(BASE_DIR, '../data')
-OUTPUT_DIR = os.path.join(BASE_DIR, '../output')
+DATA_DIR = os.path.join(BASE_DIR, './data')
+OUTPUT_DIR = os.path.join(BASE_DIR, './output')
 
 def train():    
     model_name = 'klue/bert-base'
