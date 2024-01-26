@@ -34,3 +34,13 @@ def make_diff_df(answer_df, predict_df):
     diff_df['predict'] = diff_df['predict_label'].apply(lambda x: labels_dict[x])
     
     return diff_df
+
+
+def plt_ratio(diff_df):
+    ratio = diff_df['answer_label'].value_counts()
+    ratio.sort_index(inplace=True)
+
+    labels = ['ITscience(0)', 'Economy(1)', 'Society(2)', 'LifestyleCulture(3)', 'World(4)', 'Sports(5)', 'Politics(6)']
+    plt.pie(ratio, labels=labels, autopct='%.1f%%', startangle = 90, counterclock = False)
+    plt.title('Wrong Answer Ratio')
+    plt.show()
