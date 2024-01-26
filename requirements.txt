@@ -1,0 +1,10 @@
+transformers==4.26.0
+sentencepiece==0.1.96
+numpy
+pandas
+evaluate==0.4.0
+accelerate
+scikit-learn
+ipywidgets
+protobuf==3.15.8
+torch==1.11.0
