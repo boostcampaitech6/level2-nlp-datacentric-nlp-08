@@ -43,7 +43,7 @@ def inspection():
     existing_data = existing_data.reindex(columns=['ID', 'text', 'target', 'url', 'date'], index=range(7000), fill_value='')
     noise_data = existing_data.reindex(columns=['ID', 'text', 'target', 'url', 'date'], index=range(7000), fill_value='')
     data = read_csv_file(train_path)
-    topic = {0: "정치", 1: "경제", 2: "사회", 3: "생활문화", 4: "세계" , 5:"IT과학" , 6: "스포츠"}
+    topic = {0: "IT과학", 1: "경제", 2: "사회", 3: "생활문화", 4: "세계" , 5:"스포츠" , 6: "정치"}
     
     while True:
         index = int(input("검사를 시작할 Index를 입력하세요. \n시작 Index: "))
@@ -83,7 +83,7 @@ def inspection():
         while not valid_target:
             print(f"알맞은 주제를 라벨링해 주세요. 기존에 라벨링된 주제는 '{target_now}({target_now_num})'입니다.\n")
             print(f"{text}\n")
-            target = input("정치(0)  경제(1)  사회(2)  생활문화(3)  세계(4)  IT과학(5)  스포츠(6)\n")
+            target = input("IT과학(0)  경제(1)  사회(2)  생활문화(3)  세계(4)  스포츠(5)  정치(6)\n")
             
             if target == "p":
                 target = target_now_num
