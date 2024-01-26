@@ -22,6 +22,6 @@ if __name__ == '__main__':
 
     dataset_path = '업로드 하려는 데이터셋 경로'                         # ex '/data/ephemeral/level2-nlp-datacentric-nlp-08/data/train_editted_by_human.csv'
     dataset_type = "csv"                                               # ex "json"
-    repo_id = '2024-level2-datacentric-nlp-8/{여러분이 만든 레포이름}'   # ex '2024-level2-datacentric-nlp-8/train_repo_name'
+    repo_id = '2024-level2-datacentric-nlp-8/{만들 레포이름}'           # ex '2024-level2-datacentric-nlp-8/train_repo_name'
     dataset = load_dataset(dataset_type, data_files=dataset_path)      
     dataset.push_to_hub(repo_id=repo_id, private=True)                 # 데이터셋은 parquet 확장자로 업로드된다.

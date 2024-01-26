@@ -12,7 +12,7 @@ from huggingface_hub import HfApi
     
     model_config = AutoConfig.from_pretrained(repo_id, use_auth_token=token)
     model_config.num_labels = 7
-    model = AutoModelForSequenceClassification.from_pretrained(repo_id, config=model_config, use_auth_token=token)
+    model = AutoModelForSequenceClassification.from_pretrained(repo_id, config=model_config, use_auth_token=token).to(DEVICE)
 '''
 
 if __name__ == '__main__':
