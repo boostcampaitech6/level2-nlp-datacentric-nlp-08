@@ -26,7 +26,7 @@ def inspection():
     noise_train.csv에는 내가 변경한 noise 항목들만 저장됩니다. 단, 변경하기 전 원래 데이터로 저장됩니다.
     자신이 검사할 분량이 끝나면 자동으로 종료됩니다.
     '''
-    train_path = "../data/train.csv"
+    train_path = "../../data/train.csv"
     noise_train = "noise_train.csv"
     inspected_train = "inspected_train.csv"
     
