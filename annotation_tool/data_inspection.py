@@ -39,9 +39,9 @@ def inspection():
         
     try:
         noise_data = pd.read_csv(noise_train, dtype=str)
-        print('이미 noise_train 파일이 존재합니다.')
+        print('이미 noise_train 파일이 존재합니다.\n')
     except FileNotFoundError:
-        print('새로운 noise_train 파일을 생성합니다.')
+        print('새로운 noise_train 파일을 생성합니다.\n')
         noise_data = pd.DataFrame()
     
     existing_data = existing_data.reindex(columns=['ID', 'text', 'target', 'url', 'date'], index=range(7000), fill_value='')
@@ -105,13 +105,15 @@ def inspection():
         print("----------------------------------------------------------------------------------------------------------------\n")
         
         print(f"다음과 같이 라벨링되었습니다:\n{text} - 주제 : {topic[target_int]}\n")
-        data.loc[index, 'text'] = text
-        data.loc[index, 'target'] = str(target_int)
+        
+        inspected_data = data.loc[index, :]
+        inspected_data['text'] = text
+        inspected_data['target'] = str(target_int)
         
         print("----------------------------------------------------------------------------------------------------------------")
         print("----------------------------------------------------------------------------------------------------------------\n")
         
-        existing_data.loc[index, :] = data.loc[index, :]
+        existing_data.loc[index, :] = inspected_data
         existing_data.to_csv(inspected_train, index=False)
         noise_data.to_csv(noise_train, index=False)
         

@@ -162,3 +162,7 @@ cython_debug/
 *.csv
 *.yaml
 *.ckpt
+
+submission/
+data/
+output/
