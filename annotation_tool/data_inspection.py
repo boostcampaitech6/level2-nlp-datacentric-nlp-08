@@ -85,7 +85,7 @@ def inspection():
         
         valid_target = False
         while not valid_target:
-            print(f"알맞은 주제를 라벨링해 주세요. 기존에 라벨링된 주제는 '{target_now}({target_now_num})'입니다.\n")
+            print(f"알맞은 주제를 라벨링해 주세요. 기존에 라벨링된 주제는 '{target_now}({target_now_num})'입니다. ('p': 패스)\n")
             print(f"{text}\n")
             target = input("IT과학(0)  경제(1)  사회(2)  생활문화(3)  세계(4)  스포츠(5)  정치(6)\n")
             
