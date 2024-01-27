@@ -32,12 +32,16 @@ def inspection():
     
     try:
         existing_data = pd.read_csv(inspected_train, dtype=str)
+        print('이미 existing_data 파일이 존재합니다.')
     except FileNotFoundError:
+        print('새로운 existing_data 파일을 생성합니다.')
         existing_data = pd.DataFrame()
         
     try:
         noise_data = pd.read_csv(noise_train, dtype=str)
+        print('이미 noise_data 파일이 존재합니다.')
     except FileNotFoundError:
+        print('새로운 noise_data 파일을 생성합니다.')
         noise_data = pd.DataFrame()
     
     existing_data = existing_data.reindex(columns=['ID', 'text', 'target', 'url', 'date'], index=range(7000), fill_value='')
@@ -108,8 +112,8 @@ def inspection():
         print("----------------------------------------------------------------------------------------------------------------\n")
         
         existing_data.loc[index, :] = data.loc[index, :]
-        existing_data.to_csv('inspected_train.csv', index=False)
-        noise_data.to_csv('noise_train.csv', index=False)
+        existing_data.to_csv(inspected_train, index=False)
+        noise_data.to_csv(noise_train, index=False)
         
         index += 1
     
