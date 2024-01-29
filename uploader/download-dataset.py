@@ -5,5 +5,5 @@ hf_hub_download(
     filename="올릴파일 경로",
     repo_type="dataset",
     token='개인토큰',
-    local_dir='내려받gi을 경로'
+    local_dir='내려받을 경로'
     )
