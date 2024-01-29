@@ -6,8 +6,8 @@ from huggingface_hub import HfApi
 if __name__ == '__main__':
     api = HfApi()
 
-    data_path = '{올리고 싶은 데이터셋 경로}' # ex '/data/ephemeral/level2-nlp-datacentric-nlp-08/results/checkpoint-9000'
-    repo_id = '2024-level2-datacentric-nlp-8/{생성한 레포 이름}' # ex '2024-level2-datacentric-nlp-8/xlm-roberta-large-67-punct'
+    data_path = '{올리고 싶은 데이터셋 경로}' # .csv가 담긴 폴더 경로를 적어주세요 ex) ./ynat-data/
+    repo_id = '2024-level2-datacentric-nlp-8/{생성한 레포 이름}' # ex '2024-level2-datacentric-nlp-8/yant-data.csv'
 
     api.upload_folder(
         folder_path=data_path,
