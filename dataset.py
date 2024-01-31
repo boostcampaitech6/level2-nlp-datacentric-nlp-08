@@ -27,12 +27,7 @@ class BERTDataset(Dataset):
 class BERTTestDataset(Dataset):
     def __init__(self, data, tokenizer):
         input_texts = data['text']
-        # self.inputs = []
-        
         self.tokenized_inputs = tokenizer(input_texts.tolist(), padding=True, return_tensors='pt')
-        # for text in input_texts:
-        #     tokenized_input = tokenizer(text, padding='max_length', max_length=128, truncation=True, return_tensors='pt')
-        #     self.inputs.append(tokenized_input)
             
     def __getitem__(self, idx):
         return {
