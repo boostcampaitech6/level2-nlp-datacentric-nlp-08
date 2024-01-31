@@ -32,7 +32,7 @@ def test():
     
     tokenized_dataset = BERTTestDataset(dataset_test, tokenizer)
     
-    batch_size = 19  # 테스트 데이터셋 크기가 47785개 = 5*19*503
+    batch_size = 32  # 테스트 데이터셋 크기가 47785개 = 5*19*503
     data_loader = DataLoader(tokenized_dataset, batch_size=batch_size, shuffle=False)
 
     model.eval()
