@@ -23,3 +23,17 @@ class BERTDataset(Dataset):
     
     def __len__(self):
         return len(self.labels)
+    
+class BERTTestDataset(Dataset):
+    def __init__(self, data, tokenizer):
+        input_texts = data['text']
+        self.tokenized_inputs = tokenizer(input_texts.tolist(), padding=True, return_tensors='pt')
+            
+    def __getitem__(self, idx):
+        return {
+            'input_ids': self.tokenized_inputs['input_ids'][idx].squeeze(0),  
+            'attention_mask': self.tokenized_inputs['attention_mask'][idx].squeeze(0)
+        }
+    
+    def __len__(self):
+        return len(self.tokenized_inputs['input_ids'])
