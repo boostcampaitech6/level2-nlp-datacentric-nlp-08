@@ -16,12 +16,12 @@ TOKEN = 'huggingface token'
 # MODEL_DIR = os.path.join(BASE_DIR, '../output/checkpoint-300')
 
 def model_setup():
-    print('model setup')
+    # print('model setup')
     Tokenizer_NAME = "klue/bert-base"
     tokenizer = AutoTokenizer.from_pretrained(Tokenizer_NAME)
 
     model = AutoModelForSequenceClassification.from_pretrained(MODEL_DIR, use_auth_token=TOKEN, num_labels=7)
-    model.parameters
+    # model.parameters
 
     model.to(DEVICE)
     model.eval()
@@ -30,7 +30,7 @@ def model_setup():
 def main():
     """
         Datacentric 주제 분류 프로젝트 - 팀 WIZARDS OF SENTENCES -
-        팀 동행의 RE(관계 추출) Project 코드 참조
+        팀 동행의 RE(관계 추출) Project의 app.py 코드 참조
     """
     st.markdown("<h2 style='text-align: center; color: red;'>NLP Data-Centric 🦆</h2>", unsafe_allow_html=True)
 
