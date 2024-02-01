@@ -3,11 +3,13 @@ from tqdm.auto import tqdm
 
 import pandas as pd
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait   
+from webdriver_manager.chrome import ChromeDriverManager
     
 class Crawl_news:
     def __init__(self, sid1):
@@ -21,7 +23,9 @@ class Crawl_news:
         options.add_argument('--headless')
         options.add_argument('--no-sandbox')
         options.add_argument('--disable-dev-shm-usage')
-        return webdriver.Chrome(executable_path=chromedriver_path, options=options)
+        
+        service = Service(executable_path=chromedriver_path)
+        return webdriver.Chrome(service=service, options=options)
         
         
     def clean_sentence(self, sentence):
@@ -62,7 +66,7 @@ class Crawl_news:
             )
             
             article_urls = []
-            links = main_driver.find_elements_by_css_selector('div.section_body dt.photo a')
+            links = main_driver.find_elements(By.CSS_SELECTOR, 'div.section_body dt.photo a')
             for link in links:
                 try:
                     url = link.get_attribute('href')
@@ -73,7 +77,7 @@ class Crawl_news:
             num_articles = self.extract_content(article_urls,article_driver)
             total_articles += num_articles
             
-            if total_articles == target_number:
+            if total_articles > target_number:
                 reach_to_target = True
             else:
                 print(f"추출한 기사 수: {total_articles}")
@@ -95,7 +99,7 @@ class Crawl_news:
             title_element = article_driver.find_element(By.CSS_SELECTOR, '.media_end_head_headline')
             title = title_element.text.strip()
             
-            content_element = article_driver.find_element_by_id('dic_area')
+            content_element = article_driver.find_element(By.ID, 'dic_area')
             content_text = content_element.text
             try:
                 content = content_text.split('\n\n')[2]
