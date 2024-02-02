@@ -25,7 +25,7 @@
     ![Untitled](https://github.com/boostcampaitech6/level2-nlp-datacentric-nlp-08/assets/76895949/30d21519-0878-447e-b92b-e37cfcd4da14)
 
 
-## 1-1-4. 평가 방법
+## 1-1-3. 평가 방법
 
 - Macro F1 Score
     - 각 label 별 f1 score 를 구한 후 모든 label 의 각 f1 score 에 대한 평균을 구한다.
