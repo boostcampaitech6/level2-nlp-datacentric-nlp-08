@@ -57,7 +57,9 @@
     - 저작권을 존중해 AI 에 학습에 사용할 수 있는 데이터만 수집
     - 스포츠 분야를 제외한 정치, 경제, 사회, 생활/문화, IT/과학 분야의 기사 제목과 본문의 일부, 출처를 밝히기 위한 url 수집
     - 일부 특수문자와 한글, 영어, 한자만 남도록 data cleaning 수행
+
 - kaggle news dataset ([link](https://www.kaggle.com/datasets/rmisra/news-category-dataset?resource=download))
+
     
     ```jsx
     {"link": "https://www.huffpost.com/entry/funniest-tweets-cats-dogs-september-17-23_n_632de332e4b0695c1d81dc02", 
